@@ -1,0 +1,23 @@
+# ---------------------------------------------------------------
+# Data: raw ROV logs are not tracked by default.
+# Put your own log files into data/raw/ (see README).
+# ---------------------------------------------------------------
+data/raw/*
+!data/raw/.gitkeep
+# To share ONE example log publicly (only after checking that you may!), add its exact file name:
+# !data/raw/ROV-Log-2026-10-17-2026-10-20-1020111815.json
+
+# Jupyter / Python
+.ipynb_checkpoints/
+__pycache__/
+*.pyc
+
+# Environments and secrets
+.venv/
+.env
+*.key
+
+# Editor and system files
+.vscode/
+.DS_Store
+Thumbs.db

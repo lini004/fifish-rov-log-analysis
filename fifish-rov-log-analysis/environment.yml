@@ -1,0 +1,10 @@
+name: fifish-env
+channels:
+  - conda-forge
+dependencies:
+  - python=3.12
+  - pandas
+  - numpy
+  - matplotlib
+  - ipykernel      # lets VS Code / Jupyter run the notebook
+  - python-tzdata  # time zone database (needed on Windows for "Europe/Zurich")

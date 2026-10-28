@@ -1,0 +1,21 @@
+{
+  "log_file": "ROV-Log-2026-10-17-2026-10-20-1020113121.json",
+  "start": "2026-10-20 11:19:45.497000+02:00",
+  "end": "2026-10-20 11:31:12.477000+02:00",
+  "duration_min": 11.4,
+  "n_gaps": 0,
+  "gap_total_min": 0.0,
+  "water_entry_s": 73,
+  "n_dives": 2,
+  "max_depth_m": 6.72,
+  "time_max_depth": "2026-10-20 11:21:19.048000+02:00",
+  "temp_at_max_depth_C": 18.48,
+  "water_temp_median_C": 18.39,
+  "water_temp_range_C": [
+    18.35,
+    18.49
+  ],
+  "seconds_below_threshold": 316,
+  "water_sensor_attached": false,
+  "events": []
+}
