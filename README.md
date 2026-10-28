@@ -1,10 +1,7 @@
 # FIFISH E-GO ROV Log Analysis
 
 Python notebook to analyse the **ROV Log** files of a QYSEA **FIFISH E-GO** underwater drone (tethered ROV):
-dive profiles, water temperature against depth, orientation/stability and a comparison of several dives.
-
-Developed during an internship at **Eawag**, Department of Surface Waters (SURF), Remote Sensing group, to test
-how an inexpensive underwater drone can complement remote sensing of lakes (e.g. as in-situ reference for satellite products).
+dive profiles, water temperature against depth, orientation/stability and a comparison of several dives.All data contained in the log file can be visualized with these plots.
 
 ## What the notebook does
 
@@ -32,9 +29,10 @@ With `COMPARE_ALL = True` it also overlays all logs in `data/raw/` in `outputs/c
 
 The logs are exported from the FIFISH app:
 **Help → ROV Log → switch on *Log Collection* → *Connect* and dive → *Export log* (format JSON)**
-(FIFISH E-GO user manual V1.6, pp. 58-60). Turn the log collection on **before** the dive; the app logs about 2 samples per second.
 
-A log is a list of records with `type`, `timestamp` (UTC, milliseconds) and `payload`:
+Turn the log collection on **before** the dive. After the dive, immediately export the file and delete the log memory on the FIFISH app before the next dive. 
+
+A log file is a list of records with `type`, `timestamp` (UTC, milliseconds) and `payload`:
 
 | Record type | Fields | Note |
 |---|---|---|
@@ -45,21 +43,6 @@ A log is a list of records with `type`, `timestamp` (UTC, milliseconds) and `pay
 
 The raw logs are **not included** in this repository (see `.gitignore`). Copy your own `ROV-Log*.json` files into `data/raw/`.
 
-## Repository structure
-
-```
-fifish-rov-log-analysis/
-├── README.md
-├── .gitignore
-├── environment.yml          # conda environment with all required packages
-├── data/
-│   └── raw/                 # put the ROV-Log*.json files here (not tracked)
-├── notebooks/
-│   └── fifish_log_analysis.ipynb
-└── outputs/                 # figures and tables written by the notebook
-    ├── log_<ID>/            # one folder per analysed log
-    └── compare/             # comparison of all logs
-```
 
 ## Setup
 
@@ -85,10 +68,6 @@ To analyse another log, change `LOG_ID` and run again from the top.
 ## Limitations
 
 - The temperature sensor is inside the ROV, uncalibrated and slow to respond (minutes). Compare it with an independent
-  reference (CTD, lake model, satellite surface temperature) before drawing conclusions.
-- Without the optional U-QPS GPS module the logs contain **no coordinates**.
-- Water entry is detected automatically (temperature drop or first dive); it can be set by hand with `WATER_ENTRY_S`.
-
-## Author
-
-Alina Bauer, Eawag SURF (Remote Sensing group). Questions and suggestions are welcome via GitHub issues.
+  reference (CTD instrument,sensors, lake model, satellite surface temperature) before drawing conclusions.
+- Without the optional GPS module the logs contain **no coordinates**. Difficult to determine where the ROV is located.
+- Water entry is detected automatically (temperature drop or first dive); it can be set by hand with `WATER_ENTRY_S`
